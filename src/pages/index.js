@@ -1,3 +1,4 @@
 import HomePage from "./Home/HomePage";
 import Main from "./Main";
-export { HomePage, Main }
+import Registerpage from "./auth/register";
+export { HomePage, Main, Registerpage }

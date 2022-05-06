@@ -11,13 +11,13 @@ const NavbarComp = () => {
     }
 
     const NavbarLink = [
-        { title: 'Home', link: '/' },
-        { title: 'Point', link: '/point' },
-        { title: 'Blog', link: '/blog' },
-        { title: 'Contact', link: '/contact' },
+        { id: 1, title: 'Home', link: '/' },
+        { id: 2, title: 'Point', link: '/point' },
+        { id: 3, title: 'Blog', link: '/blog' },
+        { id: 4, title: 'Contact', link: '/contact' },
     ]
     return (
-        <div className='fixed  z-40 navbarComp py-3 border-b border-ijo'>
+        <div className='fixed  z-40 navbarComp py-3 border-b border-ijo bg-base'>
             <div className="containerMain  w-screen flex justify-between ">
 
                 <Link to='/' className="brand lg:text-2xl">
@@ -34,7 +34,7 @@ const NavbarComp = () => {
                         {
                             NavbarLink.map((item) => (
 
-                                <li><NavLink activeClassName='active ' className='lg:hover:text-main-orange duration-200' to={item.link}>{item.title}</NavLink></li>
+                                <li key={item.id}><NavLink activeClassName='active ' className='lg:hover:text-main-orange duration-200' to={item.link}>{item.title}</NavLink></li>
                             ))
                         }
                     </ul>

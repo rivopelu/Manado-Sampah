@@ -9,9 +9,10 @@ module.exports = {
       'main-orange': '#F58634',
       'ijo': '#81B214',
       'ijo-tua': '#206A5D',
+      'toska': '#21B878',
       'base': '#E7EFEE',
       'itam': '#373737',
-      'text-abu': '#DDDDDD',
+      'text-abu': '#7E7E7E',
       'white': '#ffffff'
 
 
