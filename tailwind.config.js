@@ -13,7 +13,8 @@ module.exports = {
       'base': '#E7EFEE',
       'itam': '#373737',
       'text-abu': '#7E7E7E',
-      'white': '#ffffff'
+      'white': '#ffffff',
+      'abu-border': '#B1AEAE'
 
 
 

@@ -1,3 +1,4 @@
 import BtnComp from "./BtnComp";
-
-export { BtnComp }
+import BrandLogo from "./BrandLogo";
+import InputComp from "./inputComp";
+export { BtnComp, BrandLogo, InputComp }
