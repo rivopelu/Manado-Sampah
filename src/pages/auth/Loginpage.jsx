@@ -2,7 +2,7 @@
 import { faEnvelope, faUserAlt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { BrandLogo, BtnComp, InputComp } from '../../components'
+import { AlertDua, AlertSatu, BrandLogo, BtnComp, InputComp } from '../../components'
 import registerImge from './img/register.png'
 import './auth.scss'
 
@@ -14,17 +14,21 @@ import { Link, useNavigate, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import { API_URI } from '../../utils'
 
+
 const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const [error, setError] = useState('')
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
+        setError('')
     }
 
     const changePassword = (e) => {
         setPassword(e.target.value)
+        setError('')
     }
 
     const [mata, setMata] = useState(true)
@@ -54,6 +58,9 @@ const LoginPage = () => {
                 // routeChange()
 
             })
+            .catch(e => {
+                setError(e.response.data.message)
+            })
     }
 
     return (
@@ -69,7 +76,26 @@ const LoginPage = () => {
                     <BrandLogo />
                     <div className='w-full flex  flex-col items-center '>
                         <p className='text-2xl mb-5'>Masuk</p>
+                        {/* alert */}
+                        {
+                            error && (
+                                (() => {
+                                    if (error === 'LOGIN GAGAL') {
+                                        return (
+                                            // <KananAuth />
+                                            <AlertDua title={error} />
+                                        )
+                                    } else {
+                                        return (
+                                            <AlertSatu title={error} className={'mb-4'} />
+                                            // <BtnComp title={'hello'} />
+                                        )
+                                    }
+                                })()
+                            )
+                        }
 
+                        {/* alert end */}
                         <div className="inputGroup w-full lg:px-36 2xl:px-60">
                             <div className="SOSMED-GROUP flex flex-col gap-2 w-full mb-5">
                                 {/* MASUK DENGAN GOOGLE */}

@@ -2,7 +2,7 @@
 import { faEnvelope, faUserAlt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { BrandLogo, BtnComp, InputComp } from '../../components'
+import { AlertSatu, BrandLogo, BtnComp, InputComp } from '../../components'
 import registerImge from './img/register.png'
 import './auth.scss'
 import { useNavigate } from 'react-router-dom'
@@ -57,7 +57,7 @@ const Registerpage = () => {
 
 
     // Mata Password
-    const [mata, setMata] = useState(false)
+    const [mata, setMata] = useState(true)
     const mataKlik = () => {
         setMata(!mata)
     }
@@ -115,17 +115,13 @@ const Registerpage = () => {
                             {
                                 error && (
 
-                                    <div className="alert bg-main-orange">
-                                        <p>{error}</p>
-                                    </div>
+                                    <AlertSatu className={'mb-3'} title={error} />
                                 )
                             }
                             {
                                 alert && (
 
-                                    <div className="alert bg-main-orange">
-                                        <p>{alert}</p>
-                                    </div>
+                                    <AlertSatu className={'mb-3'} title={error} />
                                 )
                             }
 
