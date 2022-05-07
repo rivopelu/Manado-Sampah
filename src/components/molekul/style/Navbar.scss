@@ -1,6 +1,11 @@
 .navbarComp {
 
-
+    .garisTengahNavbar {
+        display: flex;
+        height: 20px;
+        background-color: #d4e6aa;
+        width: 2px;
+    }
 
     #navMenu {
         cursor: pointer;
@@ -16,6 +21,9 @@
             display: block;
         }
 
+        .garisTengahNavbar {
+            display: none;
+        }
 
         .kanan {
             // background-color: red;

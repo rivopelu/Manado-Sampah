@@ -9,13 +9,6 @@ const NavbarComp = () => {
     const token = localStorage.getItem('token')
     console.log('token Navbar ---->>>', token)
 
-    const tokenChange = () => {
-        if (token) {
-            setTokenMain(true)
-        } else {
-            setTokenMain(false)
-        }
-    }
 
 
     const changeColor = () => {
@@ -62,9 +55,22 @@ const NavbarComp = () => {
                             ))
                         }
                     </ul>
-                    {
-                        tokenMain ? <KananAuth /> : <BtnComp title={'hello'} />
-                    }
+                    <div className='lg:px-10'>
+                        <span className='garisTengahNavbar'></span>
+                    </div>
+                    <div>
+                        {(() => {
+                            if (!token) {
+                                return (
+                                    <KananAuth />
+                                )
+                            } else {
+                                return (
+                                    <BtnComp title={'hello'} />
+                                )
+                            }
+                        })()}
+                    </div>
 
                 </div>
             </div>
@@ -77,9 +83,9 @@ export default NavbarComp
 
 const KananAuth = () => {
     return (
-        <ul className='login-register lg:flex gap-3 lg:ml-10'>
-            <li><NavLink to={'/register'}>Daftar</NavLink></li>
-            <li className='masuk'><NavLink to={'/login'} className='flex bg-ijo-gradient px-3 text-white hover:-translate-y-1 w-fit duration-200 hover:border-b-2 rounded-sm border-main-orange '>Masuk</NavLink></li>
+        <ul className='login-register lg:flex gap-1 lg:gap-3  flex flex-col lg:items-center lg:flex-row mb-12 lg:mb-0 '>
+            <li><NavLink className={'hover:text-main-orange duration-200'} to={'/register'}>Daftar</NavLink></li>
+            <li><Link to={'/login'}><BtnComp title={'masuk'} /></Link></li>
         </ul>
     )
 }
