@@ -2,7 +2,17 @@ import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import './style/Navbar.scss'
 const NavbarComp = () => {
+    const [color, setColor] = useState(false)
 
+    const changeColor = () => {
+        if (window.scrollY >= 90) {
+            setColor(true)
+        } else {
+            setColor(false)
+        }
+    }
+
+    window.addEventListener('scroll', changeColor)
     const [klikToggle, setKlikToggle] = useState(true)
 
     const onClickToggle = () => {
@@ -17,7 +27,7 @@ const NavbarComp = () => {
         { id: 4, title: 'Contact', link: '/contact' },
     ]
     return (
-        <div className='fixed  z-40 navbarComp py-3 border-b border-ijo bg-base'>
+        <div className={`fixed  z-40 navbarComp py-3 border-b ${color ? 'border-ijo' : 'border-base'} bg-base`}>
             <div className="containerMain  w-screen flex justify-between ">
 
                 <Link to='/' className="brand lg:text-2xl">
