@@ -19,5 +19,14 @@
         font-size: 13px;
         margin-left: 5px;
         transition: 0.3s;
+
+    }
+
+    input:focus {
+        box-shadow: 0 0 5px #81B214;
+    }
+
+    input:focus~.label {
+        color: #81B214;
     }
 }

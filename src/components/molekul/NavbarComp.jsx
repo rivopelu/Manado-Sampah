@@ -1,8 +1,22 @@
 import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { BtnComp } from '../atoms'
 import './style/Navbar.scss'
 const NavbarComp = () => {
     const [color, setColor] = useState(false)
+    const [tokenMain, setTokenMain] = useState(true)
+
+    const token = localStorage.getItem('token')
+    console.log('token Navbar ---->>>', token)
+
+    const tokenChange = () => {
+        if (token) {
+            setTokenMain(true)
+        } else {
+            setTokenMain(false)
+        }
+    }
+
 
     const changeColor = () => {
         if (window.scrollY >= 90) {
@@ -48,10 +62,10 @@ const NavbarComp = () => {
                             ))
                         }
                     </ul>
-                    <ul className='login-register lg:flex gap-3 lg:ml-10'>
-                        <li><NavLink to={'/register'}>Daftar</NavLink></li>
-                        <li className='masuk'><NavLink to={'/login'} className='flex bg-ijo-gradient px-3 text-white hover:-translate-y-1 w-fit duration-200 hover:border-b-2 rounded-sm border-main-orange '>Masuk</NavLink></li>
-                    </ul>
+                    {
+                        tokenMain ? <KananAuth /> : <BtnComp title={'hello'} />
+                    }
+
                 </div>
             </div>
         </div >
@@ -59,3 +73,14 @@ const NavbarComp = () => {
 }
 
 export default NavbarComp
+
+
+const KananAuth = () => {
+    return (
+        <ul className='login-register lg:flex gap-3 lg:ml-10'>
+            <li><NavLink to={'/register'}>Daftar</NavLink></li>
+            <li className='masuk'><NavLink to={'/login'} className='flex bg-ijo-gradient px-3 text-white hover:-translate-y-1 w-fit duration-200 hover:border-b-2 rounded-sm border-main-orange '>Masuk</NavLink></li>
+        </ul>
+    )
+}
+

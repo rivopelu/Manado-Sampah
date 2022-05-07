@@ -33,7 +33,7 @@ const CardSection = () => {
             id: 4,
             img: rrr,
             title: '3R ',
-            desc: 'Mendukung Program Reuse Reduce Rycycle menjadi lebih mudah'
+            desc: 'Mendukung Program Reduce, Reduse, Rycycle menjadi lebih mudah'
         },
     ]
 
