@@ -74,7 +74,7 @@ const Registerpage = () => {
                             </div>
 
                         </div>
-                        <Link>
+                        <Link to='/'>
                             <BtnComp title={'Daftar'} className='w-full flex justify-center my-5 items-center' />
                         </Link>
                         <p className='text-sm text-center py-5'>Sudah Mempunya Akun ? <Link className='text-ijo' to={'/login'}>Silahkan Masuk</Link></p>
