@@ -5,7 +5,7 @@ const BrandLogo = ({ className }) => {
 
         <div to='/' className={`brand lg:text-2xl ${className}`}>
             <span className='text-ijo'>Manado</span>
-            <span className='text-main-orange'>Recycle</span>
+            <span className='text-main-orange '>Recycle</span>
         </div>
     )
 }
