@@ -85,6 +85,7 @@ const Registerpage = () => {
                         if (result.data) {
                             // setAlert(result.data.message)
                             routeChange()
+                            localStorage.setItem('messageRegister', 'User Telah Berhasil Di Daftarkan, Silahkan Login')
                         }
                     }
                     console.log(result.data)

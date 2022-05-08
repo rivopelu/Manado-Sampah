@@ -14,7 +14,9 @@ module.exports = {
       'itam': '#373737',
       'text-abu': '#7E7E7E',
       'white': '#ffffff',
-      'abu-border': '#B1AEAE'
+      'abu-border': '#B1AEAE',
+      'merah': '#B20600',
+      'merah-tua': '#630606'
 
 
 

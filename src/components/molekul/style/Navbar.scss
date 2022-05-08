@@ -39,7 +39,7 @@
             // z-index: -1;
             transform: translateX(-100vw);
             transition: .2s;
-            justify-content: space-between;
+            // justify-content: space-between;
 
             .navlist {
                 padding-top: 50px;
@@ -60,9 +60,15 @@
             }
 
             .login-register {
-                padding-bottom: 10px;
-                // background-color: rebeccapurple;
+                border-top: 1px solid gray;
+                padding-top: 10px;
+                align-items: center;
 
+                // padding-bottom: 10px;
+                // background-color: rebeccapurple;
+                a {
+                    padding: 0;
+                }
 
                 .masuk {
                     margin-left: 20px;

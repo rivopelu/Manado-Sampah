@@ -21,14 +21,19 @@ const LoginPage = () => {
     const [redirect, setRedirect] = useState(false)
     const [error, setError] = useState('')
 
+
+
+
     const changeEmail = (e) => {
         setEmail(e.target.value)
         setError('')
+        // localStorage.removeItem('messageRegister')
     }
 
     const changePassword = (e) => {
         setPassword(e.target.value)
         setError('')
+
     }
 
     const [mata, setMata] = useState(true)
@@ -52,9 +57,12 @@ const LoginPage = () => {
             .then(result => {
                 if (result) {
                     localStorage.setItem('token', result.data.token)
+                    localStorage.setItem('nama', result.data.nama)
+                    localStorage.setItem('username', result.data.userName)
+                    localStorage.removeItem('messageRegister')
                     setRedirect(true)
                 }
-                console.log(result.data.token)
+                // console.log(result.data.token)
                 // routeChange()
 
             })
@@ -62,6 +70,8 @@ const LoginPage = () => {
                 setError(e.response.data.message)
             })
     }
+
+    const messageRegister = localStorage.getItem('messageRegister');
 
     return (
         <>
@@ -78,6 +88,7 @@ const LoginPage = () => {
                         <p className='text-2xl mb-5'>Masuk</p>
                         {/* alert */}
                         {
+
                             error && (
                                 (() => {
                                     if (error === 'LOGIN GAGAL') {
@@ -94,6 +105,13 @@ const LoginPage = () => {
                                 })()
                             )
                         }
+                        {(() => {
+                            if (messageRegister) {
+                                return (
+                                    <AlertSatu title={messageRegister} className={'bg-ijo/50 mb-3 text-ijo-tua'} />
+                                )
+                            }
+                        })()}
 
                         {/* alert end */}
                         <div className="inputGroup w-full lg:px-36 2xl:px-60">

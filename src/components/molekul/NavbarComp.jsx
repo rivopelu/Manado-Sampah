@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { BtnComp } from '../atoms'
+import ProfileMenu from './ProfileMenu'
 import './style/Navbar.scss'
+import { TOKEN_LOCAL } from '../../utils'
 const NavbarComp = () => {
     const [color, setColor] = useState(false)
-    const [tokenMain, setTokenMain] = useState(true)
 
-    const token = localStorage.getItem('token')
-    console.log('token Navbar ---->>>', token)
+
+    const token = TOKEN_LOCAL
+
 
 
 
@@ -58,7 +60,7 @@ const NavbarComp = () => {
                     <div className='lg:px-10'>
                         <span className='garisTengahNavbar'></span>
                     </div>
-                    <div>
+                    <ul className='login-register  gap-1 lg:gap-3  flex  lg:items-center pl-[20px] lg:pl-0 '>
                         {(() => {
                             if (!token) {
                                 return (
@@ -66,11 +68,12 @@ const NavbarComp = () => {
                                 )
                             } else {
                                 return (
-                                    <BtnComp title={'hello'} />
+
+                                    <ProfileMenu />
                                 )
                             }
                         })()}
-                    </div>
+                    </ul>
 
                 </div>
             </div>
@@ -83,10 +86,12 @@ export default NavbarComp
 
 const KananAuth = () => {
     return (
-        <ul className='login-register lg:flex gap-1 lg:gap-3  flex flex-col lg:items-center lg:flex-row mb-12 lg:mb-0 '>
-            <li><NavLink className={'hover:text-main-orange duration-200'} to={'/register'}>Daftar</NavLink></li>
+        <>
+            <li><Link className={'hover:text-main-orange duration-200 p-0'} to={'/register'}>Daftar</Link></li>
             <li><Link to={'/login'}><BtnComp title={'masuk'} /></Link></li>
-        </ul>
+
+        </>
     )
 }
+
 
