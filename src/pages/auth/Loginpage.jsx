@@ -22,7 +22,7 @@ const LoginPage = () => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
-
+    console.log(process.env)
 
 
     const changeEmail = (e) => {
@@ -84,22 +84,18 @@ const LoginPage = () => {
                     loading ? <LoadingComp /> : <div></div>
                 }
             </div>
-
-
             {
                 redirect && (
                     <Navigate to='/' />
                 )
             }
             <div className='AuthPage flex items-center min-h-screen flex-col lg:flex-row'>
-
                 <div className="kanan lg:w-1/2 w-full px-[20px] lg:px-0 flex justify-between items-center  flex-col h-screen py-9">
                     <BrandLogo />
                     <div className='w-full flex  flex-col items-center '>
                         <p className='text-2xl mb-5'>Masuk</p>
                         {/* alert */}
                         {
-
                             error && (
                                 (() => {
                                     if (error === 'LOGIN GAGAL') {
@@ -123,7 +119,6 @@ const LoginPage = () => {
                                 )
                             }
                         })()}
-
                         {/* alert end */}
                         <div className="inputGroup w-full lg:px-36 2xl:px-60">
                             <div className="SOSMED-GROUP flex flex-col gap-2 w-full mb-5">
@@ -157,7 +152,6 @@ const LoginPage = () => {
                                 </p>
                             </div>
                             <div className="input flex flex-col gap-3">
-
                                 <div className="input-title flex items-center relative">
                                     <InputComp title={'email/username'} type={'email'} className={'pr-10'} value={email} onChange={changeEmail} />
                                     <FontAwesomeIcon icon={faEnvelope} className='text-text-abu absolute right-0 pr-4' />
@@ -166,12 +160,8 @@ const LoginPage = () => {
                                     <InputComp title={'password'} type={mata ? 'password' : 'text'} className={'pr-10'} value={password} onChange={changePassword} />
                                     <FontAwesomeIcon icon={mata ? faEye : faEyeSlash} onClick={mataKlik} className='text-text-abu absolute right-0 pr-4 cursor-pointer' />
                                 </div>
-
                             </div>
-
-
                             <BtnComp onClick={submitLogin} title={'Masuk'} className='w-full flex justify-center my-5 items-center' />
-
                             <p className='text-sm text-center py-5'>Belum Mempunyai Akun ? <Link className='text-ijo' to={'/register'}>Silahkan Daftar</Link></p>
                         </div>
                     </div>

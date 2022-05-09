@@ -1,5 +1,7 @@
 
-export const API_URI = 'https://backend-auth-api.vercel.app/v1'
+export const API_URI = process.env.REACT_APP_API_URI
+
+
 
 
 export const TOKEN_LOCAL = localStorage.getItem('token')
