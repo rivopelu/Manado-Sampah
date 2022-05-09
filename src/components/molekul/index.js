@@ -1,5 +1,6 @@
 import NavbarComp from "./NavbarComp";
 import CardHome from "./cardHome";
 import FooterComp from "./FooterComp";
+import { MapsComp } from "./MapsComp";
 
-export { NavbarComp, CardHome, FooterComp, }
+export { NavbarComp, MapsComp, CardHome, FooterComp, }

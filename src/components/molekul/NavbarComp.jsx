@@ -8,7 +8,8 @@ const NavbarComp = () => {
     const [color, setColor] = useState(false)
 
 
-    const token = TOKEN_LOCAL
+    const token = localStorage.getItem('token')
+    console.log(token)
 
 
 
@@ -39,7 +40,7 @@ const NavbarComp = () => {
         <div className={`fixed  z-40 navbarComp py-3 border-b ${color ? 'border-ijo' : 'border-base'} bg-base`}>
             <div className="containerMain  w-screen flex justify-between ">
 
-                <Link to='/' className="brand lg:text-2xl">
+                <Link to='/' className="brand lg:text-2xl ">
                     <span className='text-ijo'>Manado</span>
                     <span className='text-main-orange'>Recycle</span>
                 </Link>

@@ -1,4 +1,4 @@
-export const NAMA = 'nama'
+
 export const API_URI = 'https://backend-auth-api.vercel.app/v1'
 
 

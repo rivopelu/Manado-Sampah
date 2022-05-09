@@ -44,7 +44,7 @@ const ProfileMenu = () => {
                 {
                     dropDownItem.map((item) => (
 
-                        <li className='flex items-center justify-between px-5 py-2 hover:bg-[#80808044] border-b hover:border-text-abu border-white cursor-pointer '>
+                        <li key={item.id} className='flex items-center justify-between px-5 py-2 hover:bg-[#80808044] border-b hover:border-text-abu border-white cursor-pointer '>
                             <p>{item.title}</p>
                             <FontAwesomeIcon icon={item.icon} />
                         </li>

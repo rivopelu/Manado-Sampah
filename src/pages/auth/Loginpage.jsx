@@ -2,7 +2,7 @@
 import { faEnvelope, faUserAlt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { AlertDua, AlertSatu, BrandLogo, BtnComp, InputComp } from '../../components'
+import { AlertDua, AlertSatu, BrandLogo, BtnComp, InputComp, LoadingComp } from '../../components'
 import registerImge from './img/register.png'
 import './auth.scss'
 
@@ -20,6 +20,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
 
 
@@ -49,6 +50,7 @@ const LoginPage = () => {
         navigate(path)
     }
     const submitLogin = () => {
+        setLoading(true)
         const data = {
             email, password
         }
@@ -67,6 +69,7 @@ const LoginPage = () => {
 
             })
             .catch(e => {
+                setLoading(false)
                 setError(e.response.data.message)
             })
     }
@@ -75,6 +78,14 @@ const LoginPage = () => {
 
     return (
         <>
+            {/* loading */}
+            <div>
+                {
+                    loading ? <LoadingComp /> : <div></div>
+                }
+            </div>
+
+
             {
                 redirect && (
                     <Navigate to='/' />
